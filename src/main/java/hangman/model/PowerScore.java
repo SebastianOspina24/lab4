@@ -15,9 +15,11 @@ import java.lang.Math;
 public class PowerScore implements GameScore{
 
     @Override
-    public int calculateScore(int correctCount, int incorrectCount) {
-        int score = 0;
-        for (int i = 1 ; i <= correctCount; i++) score += (int)Math.pow(5, i);
+    public int calculateScore(int correctCount, int incorrectCount) throws HangManException{
+        if(correctCount < 0 || incorrectCount < 0){
+            throw new HangManException(HangManException.NEGATIVE_NUMBER);
+        }
+        int score = (int)Math.pow(5, correctCount);
         score -= 8*incorrectCount;
         return (score > 500)?500:(score<0)?0:score;
     }
