@@ -26,10 +26,146 @@
 
 package hangman.model;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 public class GameScoreTest {
+
+    /**
+     * We expect a exception
+     */
+    public void Case1GeneralOriginalScore(){
+        try{
+        OriginalScore score = new OriginalScore();
+        int result = score.calculateScore(-1, 1);
+        fail();
+        }
+        catch(HangManException e){
+            assertEquals(e.getMessage(), HangManException.NEGATIVE_NUMBER);
+
+           }
+    }
+
+    /**
+     * We expect a exception
+     */
+    public void Case2GeneralOriginalScore(){
+        try{
+        OriginalScore score = new OriginalScore();
+        int result = score.calculateScore(1, -1);
+        fail();
+        }
+        catch(HangManException e){
+            assertEquals(e.getMessage(), HangManException.NEGATIVE_NUMBER);
+
+           }
+    }
+
+    /**
+     * We expect a exception
+     */
+    public void Case3GeneralOriginalScore(){
+        try{
+        OriginalScore score = new OriginalScore();
+        int result = score.calculateScore(-1, -1);
+        fail();
+        }
+        catch(HangManException e){
+            assertEquals(e.getMessage(), HangManException.NEGATIVE_NUMBER);
+
+           }
+    }
+
+    
+    /**
+     * We expect a exception
+     */
+    public void Case1GeneralPowerScore(){
+        try{
+        PowerScore score = new PowerScore();
+        int result = score.calculateScore(-1, 1);
+        fail();
+        }
+        catch(HangManException e){
+            assertEquals(e.getMessage(), HangManException.NEGATIVE_NUMBER);
+
+           }
+    }
+
+    /**
+     * We expect a exception
+     */
+    public void Case2GeneralPowerScore(){
+        try{
+        PowerScore score = new PowerScore();
+        int result = score.calculateScore(1, -1);
+        fail();
+        }
+        catch(HangManException e){
+            assertEquals(e.getMessage(), HangManException.NEGATIVE_NUMBER);
+
+           }
+    }
+    
+    /**
+     * We expect a exception
+     */
+    public void Case3GeneralPowerScore(){
+        try{
+        PowerScore score = new PowerScore();
+        int result = score.calculateScore(-1, -1);
+        fail();
+        }
+        catch(HangManException e){
+            assertEquals(e.getMessage(), HangManException.NEGATIVE_NUMBER);
+
+           }
+    }
+
+    
+    /**
+     * We expect a exception
+     */
+    public void Case1GeneralBonusScore(){
+        try{
+            BonusScore score = new BonusScore();
+        int result = score.calculateScore(-1, 1);
+        fail();
+        }
+        catch(HangManException e){
+            assertEquals(e.getMessage(), HangManException.NEGATIVE_NUMBER);
+
+           }
+    }
+
+    /**
+     * We expect a exception
+     */
+    public void Case2GeneralBonusScore(){
+        try{
+            BonusScore score = new BonusScore();
+        int result = score.calculateScore(1, -1);
+        fail();
+        }
+        catch(HangManException e){
+            assertEquals(e.getMessage(), HangManException.NEGATIVE_NUMBER);
+
+           }
+    }
+    
+    /**
+     * We expect a exception
+     */
+    public void Case3GeneralBonusScore(){
+        try{
+            BonusScore score = new BonusScore();
+        int result = score.calculateScore(-1, -1);
+        fail();
+        }
+        catch(HangManException e){
+            assertEquals(e.getMessage(), HangManException.NEGATIVE_NUMBER);
+
+           }
+    }
     
 }
