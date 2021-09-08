@@ -27,10 +27,12 @@
 package hangman.model;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
+import org.junit.*;
+import hangman.model.*;
 
 public class GameScoreTest {
-
+    @Test
     /**
      * We expect a exception
      */
@@ -45,7 +47,7 @@ public class GameScoreTest {
 
            }
     }
-
+    @Test
     /**
      * We expect a exception
      */
@@ -61,6 +63,8 @@ public class GameScoreTest {
            }
     }
 
+
+    @Test
     /**
      * We expect a exception
      */
@@ -76,7 +80,53 @@ public class GameScoreTest {
            }
     }
 
-    
+    @Test
+    /**
+     * Result = 50
+     */
+    public void Case1OriginalScore(){
+        try{
+        OriginalScore score = new OriginalScore();
+        int result = score.calculateScore(10, 5);
+        assertEquals(50, result);
+        }
+        catch(HangManException e){
+            fail();
+           }
+    }
+
+    @Test
+    /**
+     * Result = 0
+     */
+    public void Case2OriginalScore(){
+        try{
+        OriginalScore score = new OriginalScore();
+        int result = score.calculateScore(10, 12);
+        assertEquals(0, result);
+        }
+        catch(HangManException e){
+            fail();
+           }
+    }
+
+    @Test
+    /**
+     * Result = 50
+     */
+    public void Case3OriginalScore(){
+        try{
+        OriginalScore score = new OriginalScore();
+        int result = score.calculateScore(4, 5);
+        assertEquals(50, result);
+        }
+        catch(HangManException e){
+            fail();
+
+           }
+    }
+
+    @Test
     /**
      * We expect a exception
      */
@@ -92,6 +142,7 @@ public class GameScoreTest {
            }
     }
 
+    @Test
     /**
      * We expect a exception
      */
@@ -107,6 +158,7 @@ public class GameScoreTest {
            }
     }
     
+    @Test
     /**
      * We expect a exception
      */
@@ -122,7 +174,55 @@ public class GameScoreTest {
            }
     }
 
-    
+    @Test
+    /**
+     * Result = 0
+     */
+    public void Case1PowerScore(){
+        try{
+        PowerScore score = new PowerScore();
+        int result = score.calculateScore(2, 4);
+        assertEquals(0, result);
+        }
+        catch(HangManException e){
+            fail();
+
+           }
+    }
+
+    @Test
+    /**
+     * Result = 93
+     */
+    public void Case2PowerScore(){
+        try{
+        PowerScore score = new PowerScore();
+        int result = score.calculateScore(3, 4);
+        assertEquals(93, result);
+        }
+        catch(HangManException e){
+            fail();
+
+           }
+    }
+
+    @Test
+    /**
+     * Result = 9
+     */
+    public void Case3PowerScore(){
+        try{
+        PowerScore score = new PowerScore();
+        int result = score.calculateScore(4, 2);
+        assertEquals(500, result);
+        }
+        catch(HangManException e){
+            fail();
+
+           }
+    }
+
+    @Test
     /**
      * We expect a exception
      */
@@ -138,6 +238,7 @@ public class GameScoreTest {
            }
     }
 
+    @Test
     /**
      * We expect a exception
      */
@@ -149,10 +250,10 @@ public class GameScoreTest {
         }
         catch(HangManException e){
             assertEquals(e.getMessage(), HangManException.NEGATIVE_NUMBER);
-
-           }
+        }
     }
     
+    @Test
     /**
      * We expect a exception
      */
@@ -167,5 +268,41 @@ public class GameScoreTest {
 
            }
     }
+
+    @Test
+    /**
+     * Result = 30
+     */
+    public void Case1BonusScore(){
+        try{
+        BonusScore score = new BonusScore();
+        int result = score.calculateScore(4, 2);
+        assertEquals(30, result);
+        }
+        catch(HangManException e){
+            fail();
+
+           }
+    }
+
+    @Test
+    /**
+     * Result = 0
+     */
+    public void Case2BonusScore(){
+        try{
+        BonusScore score = new BonusScore();
+        int result = score.calculateScore(4, 9);
+        assertEquals(0, result);
+        }
+        catch(HangManException e){
+            fail();
+
+           }
+    }
+
     
+
+   
+
 }
