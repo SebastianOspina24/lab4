@@ -19,7 +19,8 @@ public class PowerScore implements GameScore{
         if(correctCount < 0 || incorrectCount < 0){
             throw new HangManException(HangManException.NEGATIVE_NUMBER);
         }
-        int score = (int)Math.pow(5, correctCount);
+        int score = (correctCount ==0)?0:(int)Math.pow(5, correctCount);
+
         score -= 8*incorrectCount;
         return (score > 500)?500:(score<0)?0:score;
     }
